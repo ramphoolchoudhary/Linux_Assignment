@@ -1,0 +1,84 @@
+1. Username Verification
+
+Command:
+whoami
+
+Output:
+ramphool_choudhary
+
+Observation:
+The whoami command was executed to identify the currently logged-in Linux user. The output confirmed that the active account is ramphool_choudhary. This helps verify user identity before performing administrative tasks on the system.
+
+---
+
+2. User Group Verification
+
+Command:
+groups
+
+Output:
+ramphool_choudhary adm dialout cdrom floppy sudo audio dip video plugdev users netdev
+
+Observation:
+The groups command displayed all groups associated with my account. These groups determine the permissions and privileges available to the user. Understanding group membership is important for access control and system administration.
+
+---
+
+3. Current Shell Verification
+
+Command:
+echo $SHELL
+
+Output:
+/bin/bash
+
+Observation:
+This command displayed the default shell configured for my account. Bash is a command-line interpreter used to execute commands and scripts. It serves as the interface between the user and the Linux operating system.
+
+---
+
+4. Current Working Directory
+
+Command:
+pwd
+
+Output:
+/home/ramphool_choudhary/Linux_Assignment/Question1
+
+Observation:
+The pwd command displayed the complete path of the current working directory. It confirms the location where files are being stored and commands are being executed. This helps ensure that operations are performed in the correct directory.
+
+---
+
+5. Workspace Contents
+
+Command:
+ls -lah
+
+Output:
+total 8.0K
+drwxr-xr-x 2 ramphool_choudhary ramphool_choudhary 4.0K Jun 24 10:22 .
+drwxr-xr-x 3 ramphool_choudhary ramphool_choudhary 4.0K Jun 24 10:22 ..
+
+Observation:
+The ls -lah command listed all files and directories in the current workspace, including hidden entries. It also displayed permissions, ownership information, and file sizes. This provides a detailed overview of the current directory structure.
+
+---
+
+6. Network Connectivity Verification
+
+Command:
+ping -c 4 google.com
+
+Output:
+4 packets transmitted, 4 received, 0% packet loss
+rtt min/avg/max/mdev = 55.318/56.698/57.592/0.840 ms
+
+Observation:
+The ping command tested communication between the local system and an external server. Successful replies confirmed that internet connectivity is available. The results showed zero packet loss, indicating stable network communication.
+
+---
+
+Conclusion
+
+The Linux environment verification process was completed successfully. User account details, group memberships, shell information, working directory, workspace contents, and network connectivity were verified. The system is functioning correctly and is ready for Linux administration and support activities.
