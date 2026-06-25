@@ -1,1 +1,91 @@
+1. Directory Structure Created
 
+Command:
+mkdir ProjectWorkspace
+mkdir ProjectWorkspace/Documents
+mkdir ProjectWorkspace/Reports
+mkdir ProjectWorkspace/Backup
+
+Output:
+ProjectWorkspace
+├── Backup
+├── Documents
+└── Reports
+
+Observation:
+A dedicated project workspace was created with separate folders for documents, reports, and backup files. Organizing files into different directories improves project management and makes data easier to locate. This structure also helps in applying different security settings to each folder.
+
+---
+
+2. File Permissions Before Modification
+
+Command:
+ls -l ProjectWorkspace
+
+Output:
+drwxr-xr-x 2 ramphool_choudhary ramphool_choudhary 4096 Jun 25 07:51 Backup
+drwxr-xr-x 2 ramphool_choudhary ramphool_choudhary 4096 Jun 25 07:51 Documents
+drwxr-xr-x 2 ramphool_choudhary ramphool_choudhary 4096 Jun 25 07:51 Reports
+
+Observation:
+The directories were initially created with the default permissions assigned by the Linux system. These permissions allowed the owner full access while providing read and execute access to other users. The default permissions are determined by the current umask value.
+
+---
+
+3. Ownership Details
+
+Command:
+ls -ld ProjectWorkspace ProjectWorkspace/*
+
+Output:
+drwxr-x--- 5 ramphool_choudhary ramphool_choudhary 4096 Jun 25 07:50 ProjectWorkspace
+drwx------ 2 ramphool_choudhary ramphool_choudhary 4096 Jun 25 07:51 ProjectWorkspace/Backup
+drwxr----- 2 ramphool_choudhary ramphool_choudhary 4096 Jun 25 07:51 ProjectWorkspace/Documents
+drwxr----- 2 ramphool_choudhary ramphool_choudhary 4096 Jun 25 07:51 ProjectWorkspace/Reports
+
+Observation:
+The ownership information shows that all project directories belong to the user ramphool_choudhary. Proper ownership ensures that only the authorized user can manage project files and directory settings. This improves accountability and helps prevent unauthorized modifications.
+
+---
+
+4. Umask Value Used
+
+Command:
+umask
+
+Output:
+0022
+
+Observation:
+The current umask value is 0022. This value removes write permission for the group and others when new files and directories are created. It provides a reasonable balance between accessibility and security.
+
+---
+
+5. File Permissions After Modification
+
+Command:
+chmod 750 ProjectWorkspace
+chmod 740 ProjectWorkspace/Documents
+chmod 740 ProjectWorkspace/Reports
+chmod 700 ProjectWorkspace/Backup
+
+Output:
+drwxr-x--- ProjectWorkspace
+drwxr----- Documents
+drwxr----- Reports
+drwx------ Backup
+
+Observation:
+Permissions were modified to improve security. The project workspace allows full access only to the owner while limiting access for group members. The backup directory is accessible only to the owner, protecting sensitive backup data from unauthorized users.
+
+---
+
+6. Explanation of How Permissions Protect Project Data
+
+Linux permissions control who can read, write, and execute files or directories. By assigning appropriate permissions, unauthorized users are prevented from viewing or modifying important project files. Restricting access helps maintain data confidentiality, integrity, and security while reducing the risk of accidental or malicious changes.
+
+---
+
+Conclusion
+
+The secure project workspace was successfully created and configured. The directory structure, ownership details, default umask value, and file permissions were verified and updated. These security measures help protect project data while allowing controlled access for authorized users.
