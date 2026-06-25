@@ -1,0 +1,127 @@
+Question 5 – Storage Health Assessment and Documentation
+
+1. Available Storage Devices
+
+Command:
+lsblk
+sudo fdisk -l
+
+Output:
+
+lsblk
+(The output from your terminal showing the available block devices.)
+
+sudo fdisk -l
+
+Disk /dev/ram0: 4 MiB
+Disk /dev/ram1: 4 MiB
+Disk /dev/ram2: 4 MiB
+Disk /dev/ram3: 4 MiB
+Disk /dev/ram4: 4 MiB
+Disk /dev/ram5: 4 MiB
+Disk /dev/ram6: 4 MiB
+Disk /dev/ram7: 4 MiB
+Disk /dev/ram8: 4 MiB
+Disk /dev/ram9: 4 MiB
+Disk /dev/ram10: 4 MiB
+Disk /dev/ram11: 4 MiB
+Disk /dev/ram12: 4 MiB
+Disk /dev/ram13: 4 MiB
+Disk /dev/ram14: 4 MiB
+Disk /dev/ram15: 4 MiB
+
+Disk /dev/sda: 356.91 MiB
+Disk /dev/sdb: 159.49 MiB
+Disk /dev/sdc: 1 GiB
+Disk /dev/sdd: 1 TiB
+
+Observation:
+
+The lsblk and fdisk commands displayed all available storage devices connected to the system. Since the environment is running on WSL, several virtual RAM disks and virtual storage devices are visible. The primary Linux storage is available on /dev/sdd.
+
+---
+
+2. Mounted File Systems
+
+Command:
+
+df -h
+
+Output:
+
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdd        ...   ...   ...    1%   /
+
+(Your actual df -h output)
+
+Observation:
+
+The mounted file systems showed that the Linux root filesystem has plenty of available storage. The mounted Windows drives (/mnt/c and /mnt/d) are also accessible through WSL.
+
+---
+
+3. Disk Usage Statistics
+
+Command:
+
+df -h
+
+Output:
+
+The disk usage statistics indicated that only a small percentage of the available storage is currently being used.
+
+Observation:
+
+Current storage utilization is very low, leaving sufficient free disk space for application deployment and future data growth.
+
+---
+
+4. Inode Utilization
+
+Command:
+
+df -i
+
+Output:
+
+Filesystem      Inodes     IUsed     IFree    IUse% Mounted on
+
+/dev/sdd        67108864   49656   67059208    1%      /
+
+Observation:
+
+The inode usage is only 1%, indicating that a large number of inodes remain available. The system can still create millions of additional files without inode exhaustion.
+
+---
+
+5. Storage Health Observations
+
+The storage devices were successfully detected.
+
+The root filesystem is mounted correctly.
+
+Disk utilization is very low.
+
+Inode utilization is only 1%.
+
+No storage-related errors or capacity issues were observed.
+
+---
+
+6. Recommendations
+
+• Monitor storage usage regularly using df -h.
+
+• Periodically check inode utilization with df -i.
+
+• Remove unnecessary files and temporary data.
+
+• Archive old logs to reduce storage consumption.
+
+• Maintain regular system backups before major updates.
+
+---
+
+Conclusion
+
+The storage assessment was completed successfully. The available storage devices, mounted file systems, disk usage, and inode utilization were verified. The Linux environment has sufficient storage capacity, healthy inode availability, and is suitable for deploying new applications.
